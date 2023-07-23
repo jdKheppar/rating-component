@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Interactive rating component</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="container">
+        <img class="starIcon" src="./images/icon-star.svg" alt="Icon Star" />
+        <h1>How did we do?</h1>
+        <p class="para">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+        <div class="numbers">
+          <div class="number">1</div>
+          <div class="number">2</div>
+          <div class="number">3</div>
+          <div class="number">4</div>
+          <div class="number">5</div>
+        </div>
+        <a href="/thanku.html"><button id="btn" class="btn">Submit</button></a>
+      </div>
+    </div>
+    <script>
+      // Get all elements with class "number"
+      const numberElements = document.querySelectorAll(".number");
+
+      // Add click event listener to each "number" element
+      numberElements.forEach((numberElement) => {
+        numberElement.addEventListener("click", () => {
+          // Change background color of the clicked element
+          if (numberElement.style.backgroundColor === "rgb(38, 47, 57)") {
+            numberElement.style.backgroundColor = "hsl(25, 97%, 53%)";
+          } else {
+            numberElement.style.backgroundColor = "rgb(38, 47, 57)";
+          }
+
+          // Set background color of all other "number" elements to rgb(38, 47, 57)
+          numberElements.forEach((otherNumberElement) => {
+            if (otherNumberElement !== numberElement) {
+              otherNumberElement.style.backgroundColor = "rgb(38, 47, 57)";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
